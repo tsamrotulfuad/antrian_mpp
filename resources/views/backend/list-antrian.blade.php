@@ -6,7 +6,7 @@
 
 @section('content')
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800 mb-4">Dinas</h1>
+    <h1 class="h3 mb-2 text-gray-800 mb-4">Jenis Pelayanan : {{auth()->user()->nama_layanan}}</h1>
 
      <!-- DataTales Example -->
      <div class="card shadow mb-4">

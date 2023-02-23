@@ -6,6 +6,7 @@ use App\Http\Controllers\OpdController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,21 +24,42 @@ Route::post('/dpmptsp', [HomeController::class, 'dpmptsp']);
 
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
+
+Route::post('/postlogin', 'App\Http\Controllers\LoginController@postlogin')->name('postlogin');
+Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
 
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 });
 
-Route::get('/list-antrian', function () {
-    return view('backend.list-antrian');
+Route::group(['middleware' => ['auth','cekrole:admin']], function(){
+    Route::get('/dashboard', function () {
+        return view('backend.dashboard');
+    });
+    
+    Route::get('/list-antrian', function () {
+        return view('backend.list-antrian');
+    });
+    
+    Route::get('/getLayanan/{id}', function($id){
+        $layanan = App\Models\Layanan::where('opd_id', $id)->get();
+        return response()->json($layanan);
+    });
+    
+    Route::resource('opds', OpdController::class);
+    Route::resource('layanans', LayananController::class);
+    Route::resource('petugas', PetugasController::class);
+    //Route::resource('user', UserController::class);
 });
 
-Route::get('/getLayanan/{id}', function($id){
-    $layanan = App\Models\Layanan::where('opd_id', $id)->get();
-    return response()->json($layanan);
-});
+Route::group(['middleware' => ['auth','cekrole:admin,petugas']], function(){
+    Route::get('/dashboard', function () {
+        return view('backend.dashboard');
+    });
+    
+    Route::get('/list-antrian', function () {
+        return view('backend.list-antrian');
+    });
 
-Route::resource('opds', OpdController::class);
-Route::resource('layanans', LayananController::class);
-Route::resource('petugas', PetugasController::class);
+});
