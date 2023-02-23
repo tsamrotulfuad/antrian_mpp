@@ -95,7 +95,7 @@
     </section>
     <section id="layanan_opd"> 
         <div class="container">
-            <div class="card" id="dpmptsp" style="width: auto; display: none">
+            <div class="card" id="dpmptsp" style="width: auto; display: block">
                 <div class="card-header fs-4 text-center">
                     Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu
                 </div>
@@ -123,18 +123,20 @@
         <div class="modal fade" id="modal-oss" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                <div class="modal-header justify-content-center">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Layanan - OSS</h1>
-                </div>
-                <div class="modal-body">
-                    <div class="py-5 text-center">
-                        <h2>Checkout form</h2>
-                        <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+                    <div class="modal-header justify-content-center">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Layanan - OSS</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class="py-2 text-center">
+                            <p class="lead">No. Antrian</p>
+                            <p class="h1">A 0001</p>
+                            <p class="lead">Waktu</p>
+                            <p class="h6">20 - 02 - 2023</p>
                         </div>
                     </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-primary mr-auto">Save changes</button>
-                </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-primary mr-auto">Ambil Antrian</button>
+                    </div>
                 </div>
             </div>
         </div>
