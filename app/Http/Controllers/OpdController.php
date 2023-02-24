@@ -20,6 +20,11 @@ class OpdController extends Controller
         ->with('i', (request()->input('page', 1) -1) * 5);
     }
 
+    public function halamanopd()
+    {
+        return view('backend.opd');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
