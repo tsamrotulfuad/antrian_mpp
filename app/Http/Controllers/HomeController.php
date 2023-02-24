@@ -10,11 +10,15 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-   
-
     public function index()
     {
-        return view('welcome');
+        $tanggal = date('d / M / y');
+        return view('welcome', compact('tanggal'));
+    }
+
+    public function dpmptsp_oss(Request $request)
+    {
+        
     }
     
 }
