@@ -52,8 +52,8 @@
     
   <script src="{{ asset('login/js/jquery.min.js') }}"></script>
   <script src="{{ asset('login/js/popper.js') }}"></script>
-  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('js/main.js') }}"></script>
+  <script src="{{ asset('login/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('login/js/main.js') }}"></script>
 
 	</body>
 </html>
