@@ -20,7 +20,7 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::post('/dpmptsp', [HomeController::class, 'dpmptsp']);
+Route::post('/dpmptsp', [HomeController::class, 'dpmptsp_store']);
 
 Route::get('/login', function () {
     return view('login');
