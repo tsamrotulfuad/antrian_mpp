@@ -31,12 +31,15 @@
             <i class="fas fa-fw fa-cog"></i>
             <span>Master data</span>
         </a>
-        <div id="collapseOne" class="collapse {{ (Request::is('opds*') ? 'show' : (Request::is('layanans*') ? 'show' : (Request::is('petugas*') ? 'show' : (Request::is('petugas*') ? 'show' : '')))) }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseOne" 
+             class="collapse {{ (Request::is('opds*') ? 'show' : (Request::is('layanans*') ? 'show' : (Request::is('petugas*') ? 'show' : (Request::is('users*') ? 'show' : '')))) }}" 
+             aria-labelledby="headingTwo" 
+             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item {{ (Request::is('opds*') ? 'active' : '') }}" href="{{ route('opds.index')}}">OPD</a>
                 <a class="collapse-item {{ (Request::is('layanans*') ? 'active' : '') }}" href="{{ route('layanans.index')}}">Layanan</a>
                 <a class="collapse-item {{ (Request::is('petugas*') ? 'active' : '') }}" href="{{ route('petugas.index')}}">Petugas</a>
-                <a class="collapse-item {{ (Request::is('petugas*') ? 'active' : '') }}" href="{{ route('petugas.index')}}">User</a>
+                <a class="collapse-item {{ (Request::is('users*') ? 'active' : '') }}" href="{{ route('users.index')}}">User</a>
             </div>
         </div>
     </li>

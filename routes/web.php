@@ -7,6 +7,7 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +30,7 @@ Route::get('/login', function () {
 Route::post('/postlogin', 'App\Http\Controllers\LoginController@postlogin')->name('postlogin');
 Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
 
-Route::get('/dashboard', function () {
-    return view('backend.dashboard');
-});
-
+//middleware admin
 Route::group(['middleware' => ['auth','cekrole:admin']], function(){
     Route::get('/dashboard', function () {
         return view('backend.dashboard');
@@ -50,7 +48,7 @@ Route::group(['middleware' => ['auth','cekrole:admin']], function(){
     Route::resource('opds', OpdController::class);
     Route::resource('layanans', LayananController::class);
     Route::resource('petugas', PetugasController::class);
-    //Route::resource('user', UserController::class);
+    Route::resource('users', UserController::class);
 });
 
 Route::group(['middleware' => ['auth','cekrole:admin,petugas']], function(){

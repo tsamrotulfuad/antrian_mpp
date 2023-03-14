@@ -15,5 +15,6 @@ class Antrian extends Model
         'kode_layanan',
         'no_antrian',
         'nama_layanan',
+        'status',
     ];
 }

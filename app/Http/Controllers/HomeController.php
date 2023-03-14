@@ -26,7 +26,6 @@ class HomeController extends Controller
 
     public function no_dpmptsp()
     {
-        // $lastNo = DB::table('antrians')->max('no_antrian');
         $noByDate = DB::table('antrians')
                             ->where(DB::raw('date(created_at)'), '=', DB::raw('curdate()'))
                             ->count();
@@ -50,6 +49,7 @@ class HomeController extends Controller
             'kode_layanan' => 'A', 
             'no_antrian'   => $request->no_antrian,
             'nama_layanan' => 'DPMPTSP',
+            'status' => 'Belum'
         ]);
 
         //return response
