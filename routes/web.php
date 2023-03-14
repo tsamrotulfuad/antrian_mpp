@@ -8,6 +8,7 @@ use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AntrianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,10 +37,6 @@ Route::group(['middleware' => ['auth','cekrole:admin']], function(){
         return view('backend.dashboard');
     });
     
-    Route::get('/list-antrian', function () {
-        return view('backend.list-antrian');
-    });
-    
     Route::get('/getLayanan/{id}', function($id){
         $layanan = App\Models\Layanan::where('opd_id', $id)->get();
         return response()->json($layanan);
@@ -49,6 +46,7 @@ Route::group(['middleware' => ['auth','cekrole:admin']], function(){
     Route::resource('layanans', LayananController::class);
     Route::resource('petugas', PetugasController::class);
     Route::resource('users', UserController::class);
+    Route::resource('antrians', AntrianController::class);
 });
 
 Route::group(['middleware' => ['auth','cekrole:admin,petugas']], function(){
@@ -56,8 +54,6 @@ Route::group(['middleware' => ['auth','cekrole:admin,petugas']], function(){
         return view('backend.dashboard');
     });
     
-    Route::get('/list-antrian', function () {
-        return view('backend.list-antrian');
-    });
+    Route::resource('antrians', AntrianController::class);
 
 });

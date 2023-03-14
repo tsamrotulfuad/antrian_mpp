@@ -14,8 +14,8 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item {{ Request::is('list-antrian') ? 'active' : '' }}">
-        <a class="nav-link" href="/list-antrian">
+    <li class="nav-item {{ Request::is('listAntrian') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('antrians.index') }}">
             <i class="bi bi-people-fill"></i>
             <span>List Antrian</span></a>
     </li>
